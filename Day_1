@@ -1,0 +1,609 @@
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| imrandb1           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> create database Imrandbcmd
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| imrandb1           |
+| imrandbcmd         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use imrandbcmd;
+Database changed
+mysql> CREATE TABLE Employee (
+    ->     EmpID INT,
+    ->     FirstName VARCHAR(225),
+    ->     LastName VARCHAR(225),
+    ->     EmpAGE INT,
+    ->     EmpZONE VARCHAR(22)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> Insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE) Values(1, 'Mohammad', 'Imran', 21, 'South');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |
++-------+-----------+----------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> Insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE) Values(2, 'Pagidi', 'Manoj', 21, 'South');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE) Values(3, 'Tanjiro', 'Kamado', 21, 'South');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |
+|     2 | Pagidi    | Manoj    |     21 | South   |
+|     3 | Tanjiro   | Kamado   |     21 | South   |
++-------+-----------+----------+--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> Insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE) Values(4, 'Butterfly', 'Shinobu', 16, 'South');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |
+|     2 | Pagidi    | Manoj    |     21 | South   |
+|     3 | Tanjiro   | Kamado   |     21 | South   |
+|     4 | Butterfly | Shinobu  |     16 | South   |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> Select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |
+|     2 | Pagidi    | Manoj    |     21 | South   |
+|     3 | Tanjiro   | Kamado   |     21 | South   |
+|     4 | Butterfly | Shinobu  |     16 | South   |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> Select EmpId From Employee;
++-------+
+| EmpId |
++-------+
+|     1 |
+|     2 |
+|     3 |
+|     4 |
++-------+
+4 rows in set (0.00 sec)
+
+mysql> Select FirstName From Employee;
++-----------+
+| FirstName |
++-----------+
+| Mohammad  |
+| Pagidi    |
+| Tanjiro   |
+| Butterfly |
++-----------+
+4 rows in set (0.00 sec)
+
+mysql> Select FirstName , EmpZONE From Employee;
++-----------+---------+
+| FirstName | EmpZONE |
++-----------+---------+
+| Mohammad  | South   |
+| Pagidi    | South   |
+| Tanjiro   | South   |
+| Butterfly | South   |
++-----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> Select EmpId, FirstName , EmpZONE From Employee;
++-------+-----------+---------+
+| EmpId | FirstName | EmpZONE |
++-------+-----------+---------+
+|     1 | Mohammad  | South   |
+|     2 | Pagidi    | South   |
+|     3 | Tanjiro   | South   |
+|     4 | Butterfly | South   |
++-------+-----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> create table Employe(
+    -> EmpID int NOT NULL,
+    -> FirstName varchar(225),
+    -> LastName varchar(225),
+    -> EmpAGE int
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+
+mysql> DESC Employe;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | NO   |     | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec
+
+mysql> insert into Employe(EmpID, FirstName, LastName, EmpAGE)
+    -> values(1, 'Gojo', 'Saturo', 21)
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Employe;
++-------+-----------+----------+--------+
+| EmpID | FirstName | LastName | EmpAGE |
++-------+-----------+----------+--------+
+|     1 | Gojo      | Saturo   |     21 |
++-------+-----------+----------+--------+
+1 row in set (0.00 sec)
+mysql> Create table Employeeuniq(
+    -> EmpID int NOT NULL,
+    -> FirstName varchar(222),
+    -> LastName varchar(222),
+    -> Unique(EmpID)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> Desc Employeeuniq
+    -> ;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | NO   | PRI | NULL    |       |
+| FirstName | varchar(222) | YES  |     | NULL    |       |
+| LastName  | varchar(222) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> Create table EmployeeUniq1(
+    -> EmpID int Not Null,
+    -> FirstName varchar(225),
+    -> LastName varchar(225),
+    -> EmpZone varchar(225),
+    -> Primary KEY(EmpID)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc Employeeuniq1;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | NO   | PRI | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpZone   | varchar(225) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> create table EmployeeCheck(
+    -> EmpId int Not null,
+    -> FirstName varchar(225),
+    -> LastName varchar(225),
+    -> EmpAGE int,
+    -> check(EmpAGE>20)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc EmployeeCheck;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpId     | int          | NO   |     | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into EmployeeCheck(EmpID, FirstName, LastName, EmpAGE)
+    -> values(1,'Tom','Hanks',25);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Select * from EmployeeCheck;
++-------+-----------+----------+--------+
+| EmpId | FirstName | LastName | EmpAGE |
++-------+-----------+----------+--------+
+|     1 | Tom       | Hanks    |     25 |
++-------+-----------+----------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into EmployeeCheck(EmpID, FirstName, LastName, EmpAGE)
+    -> values(2,'Monkey','Luffy',22);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Select * from EmployeeCheck;
++-------+-----------+----------+--------+
+| EmpId | FirstName | LastName | EmpAGE |
++-------+-----------+----------+--------+
+|     1 | Tom       | Hanks    |     25 |
+|     2 | Monkey    | Luffy    |     22 |
++-------+-----------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> create table EmployeeDefault(
+    -> EmpId int Not null,
+    -> FirstName varchar(225),
+    -> LastName varchar(225),
+    -> EmpDept varchar(225) Default 'Operations');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc EmployeeDefault;
++-----------+--------------+------+-----+------------+-------+
+| Field     | Type         | Null | Key | Default    | Extra |
++-----------+--------------+------+-----+------------+-------+
+| EmpId     | int          | NO   |     | NULL       |       |
+| FirstName | varchar(225) | YES  |     | NULL       |       |
+| LastName  | varchar(225) | YES  |     | NULL       |       |
+| EmpDept   | varchar(225) | YES  |     | Operations |       |
++-----------+--------------+------+-----+------------+-------+
+4 rows in set (0.00 sec)
+
+
+mysql> insert into EmployeeCheck(EmpID, FirstName, LastName)
+    -> values(1, 'Mohammad', 'Imran');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Desc EmployeeDefault;
++-----------+--------------+------+-----+------------+-------+
+| Field     | Type         | Null | Key | Default    | Extra |
++-----------+--------------+------+-----+------------+-------+
+| EmpId     | int          | NO   |     | NULL       |       |
+| FirstName | varchar(225) | YES  |     | NULL       |       |
+| LastName  | varchar(225) | YES  |     | NULL       |       |
+| EmpDept   | varchar(225) | YES  |     | Operations |       |
++-----------+--------------+------+-----+------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> Select * From EmployeeDefault;
+Empty set (0.00 sec)
+
+mysql> insert into EmployeeDefault(EmpID, FirstName, LastName)
+    -> values(1, 'Mohammad', 'Imran');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Desc EmployeeDefault;
++-----------+--------------+------+-----+------------+-------+
+| Field     | Type         | Null | Key | Default    | Extra |
++-----------+--------------+------+-----+------------+-------+
+| EmpId     | int          | NO   |     | NULL       |       |
+| FirstName | varchar(225) | YES  |     | NULL       |       |
+| LastName  | varchar(225) | YES  |     | NULL       |       |
+| EmpDept   | varchar(225) | YES  |     | Operations |       |
++-----------+--------------+------+-----+------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> Select * From EmployeeDefault;
++-------+-----------+----------+------------+
+| EmpId | FirstName | LastName | EmpDept    |
++-------+-----------+----------+------------+
+|     1 | Mohammad  | Imran    | Operations |
++-------+-----------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> Select * From Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |
+|     2 | Pagidi    | Manoj    |     21 | South   |
+|     3 | Tanjiro   | Kamado   |     21 | South   |
+|     4 | Butterfly | Shinobu  |     16 | South   |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> Create index DemoIndex
+    -> on Employee(FirstName);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> Create index DemoIndex2
+    -> On Employee(FirstName, LastName, EmpZone);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show indexes from Employee;
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table    | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| employee |          1 | DemoIndex  |            1 | FirstName   | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| employee |          1 | DemoIndex2 |            1 | FirstName   | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| employee |          1 | DemoIndex2 |            2 | LastName    | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| employee |          1 | DemoIndex2 |            3 | EmpZONE     | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+4 rows in set (0.01 sec)
+
+mysql> drop index DemoIndex on Employee;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show indexes from Employee;
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table    | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| employee |          1 | DemoIndex2 |            1 | FirstName   | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| employee |          1 | DemoIndex2 |            2 | LastName    | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| employee |          1 | DemoIndex2 |            3 | EmpZONE     | A         |           4 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table Employee
+    -> add EmpDept varchar(225);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
+| EmpDept   | varchar(225) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> Alter table Employee
+    -> drop column EmpDept;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
+mysql> alter table Employee
+    -> add EmpDept varchar(225);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
+| EmpDept   | varchar(225) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
+| EmpDept   | varchar(225) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> Alter table Employee
+    -> drop coulmn EmpDept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EmpDept' at line 2
+mysql> Alter table Employee
+    -> drop column EmpDept;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> add column EmpDept varchar(225);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
+| EmpDept   | varchar(225) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table Employee
+    -> alter column EmpDept int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int' at line 2
+mysql> alter table Employee
+    -> modify column EmpDept int;
+Query OK, 4 rows affected (0.05 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> Desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  | MUL | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(22)  | YES  |     | NULL    |       |
+| EmpDept   | int          | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> slect * from Employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect * from Employee' at line 1
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE | EmpDept |
++-------+-----------+----------+--------+---------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |    NULL |
+|     2 | Pagidi    | Manoj    |     21 | South   |    NULL |
+|     3 | Tanjiro   | Kamado   |     21 | South   |    NULL |
+|     4 | Butterfly | Shinobu  |     16 | South   |    NULL |
++-------+-----------+----------+--------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> Select EmpAge From Employee;
++--------+
+| EmpAge |
++--------+
+|     21 |
+|     21 |
+|     21 |
+|     16 |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select distinct EmpAGR from Employee;
+ERROR 1054 (42S22): Unknown column 'EmpAGR' in 'field list'
+mysql> select distinct EmpAGE from Employee;
++--------+
+| EmpAGE |
++--------+
+|     21 |
+|     16 |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select  from Employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from Employee' at line 1
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE | EmpDept |
++-------+-----------+----------+--------+---------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |    NULL |
+|     2 | Pagidi    | Manoj    |     21 | South   |    NULL |
+|     3 | Tanjiro   | Kamado   |     21 | South   |    NULL |
+|     4 | Butterfly | Shinobu  |     16 | South   |    NULL |
++-------+-----------+----------+--------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> Select * from Employee
+    -> where EmpAGE = 25;
+Empty set (0.00 sec)
+
+mysql> Select * from Employee
+    -> where EmpAGE = 21;
++-------+-----------+----------+--------+---------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE | EmpDept |
++-------+-----------+----------+--------+---------+---------+
+|     1 | Mohammad  | Imran    |     21 | South   |    NULL |
+|     2 | Pagidi    | Manoj    |     21 | South   |    NULL |
+|     3 | Tanjiro   | Kamado   |     21 | South   |    NULL |
++-------+-----------+----------+--------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql>
