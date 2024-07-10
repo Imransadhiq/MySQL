@@ -1,0 +1,328 @@
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+
+mysql> create table Employee(
+    -> EmpID int,
+    -> FirstName varchar(225),
+    -> LastName varchar(225),
+    -> EmpAGE int,
+    -> EmpZONE varchar(225)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | YES  |     | NULL    |       |
+| FirstName | varchar(225) | YES  |     | NULL    |       |
+| LastName  | varchar(225) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZONE   | varchar(225) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE)
+    -> values(1, Mohammad, Imran,20,South)
+    -> values(1, Mohammad, Imran,20,South)
+    -> values(1, Mohammad, Imran,20,South)
+    -> values(1, Mohammad, Imran,20,South)
+
+
+
+mysql> insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE)
+    -> values(4, 'Shaik', 'Momin',23,'West');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Select * From Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Shaik     | Soniya   |     20 | North   |
+|     3 | Bonella   | Rakesh   |     20 | East    |
+|     4 | Shaik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from Employee
+    -> where EmpAGE Between 15 And 20;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Shaik     | Soniya   |     20 | North   |
+|     3 | Bonella   | Rakesh   |     20 | East    |
++-------+-----------+----------+--------+---------+
+3 rows in set (0.00 sec)
+
+
+mysql> select FirstName, LastName, EmpAGE,
+    -> case
+    -> when EmpAGE > 25 then 'The Employee with experience, Eligible For sr.profile'
+    -> when EmpAGE = 20 Then 'Employee is mid-experienced level. Eligible!'
+    -> ELSE 'Fresher.... new to company'
+    -> end as Eligibility
+    -> From Employee;
++-----------+----------+--------+----------------------------------------------+
+| FirstName | LastName | EmpAGE | Eligibility
+   |
++-----------+----------+--------+----------------------------------------------+
+| Mohammad  | Imran    |     20 | Employee is mid-experienced level. Eligible! |
+| Shaik     | Soniya   |     20 | Employee is mid-experienced level. Eligible! |
+| Bonella   | Rakesh   |     20 | Employee is mid-experienced level. Eligible! |
+| Shaik     | Momin    |     23 | Fresher.... new to company
+   |
++-----------+----------+--------+----------------------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Empoloyee:
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1
+mysql> select * from Empoloyee;
+ERROR 1146 (42S02): Table 'yasincmd.empoloyee' doesn't exist
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Shaik     | Soniya   |     20 | North   |
+|     3 | Bonella   | Rakesh   |     20 | East    |
+|     4 | Shaik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> Delete from Employee
+    -> Where EmpZone = 'south';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     2 | Shaik     | Soniya   |     20 | North   |
+|     3 | Bonella   | Rakesh   |     20 | East    |
+|     4 | Shaik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+3 rows in set (0.00 sec)
+
+
+mysql> Delete from Employee;
+Query OK, 3 rows affected (0.00 sec)
+
+mysql> select * from Employee;
+Empty set (0.00 sec)
+
+
+
+
+mysql> insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE)
+    -> values(2, 'Shaik', 'Soniya',19,'North');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE)
+    -> values(3, 'Bonela', 'Rakesh',21,'East');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee(EmpID, FirstName, LastName, EmpAGE, EmpZONE)
+    -> values(4, 'Sahik', 'Momin',25,'West');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Shaik     | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     25 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> update Employee
+    -> SET EmpAGE = 23
+    -> Where EmpID=4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Shaik     | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> update Employee
+    -> Set FirstName = 'Mohammad'
+    -> Where EmpID = 2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Mohammad  | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * From Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Mohammad  | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select Avg(EmpAGE)
+    -> From Employee;
++-------------+
+| Avg(EmpAGE) |
++-------------+
+|     20.7500 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * From Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Mohammad  | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select sum(EmpAGE)
+    -> from Employee;
++-------------+
+| sum(EmpAGE) |
++-------------+
+|          83 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(EmpAGE) as Result
+    -> From Employee;
++--------+
+| Result |
++--------+
+|     83 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> Select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Mohammad  | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SElect * from Employee
+    -> order by EmpAGE;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     2 | Mohammad  | Soniya   |     19 | North   |
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Employee
+    -> Order by EmpAGE Desc;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     4 | Sahik     | Momin    |     23 | West    |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Mohammad  | Soniya   |     19 | North   |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Mohammad  | Soniya   |     19 | North   |
+|     3 | Bonela    | Rakesh   |     21 | East    |
+|     4 | Sahik     | Momin    |     23 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+
+mysql> Create table Employee(
+    -> EmpID int NOT NULL AUTO_INCREMENT,
+    -> FirstName varchar(225),
+    -> LastName varchar(225),
+    -> EmpAGE int,
+    -> EmpZONE varchar(225),
+    -> PRIMARY KEY (EmpID)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc Employee;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| EmpID     | int          | NO   | PRI | NULL    | auto_increment |
+| FirstName | varchar(225) | YES  |     | NULL    |                |
+| LastName  | varchar(225) | YES  |     | NULL    |                |
+| EmpAGE    | int          | YES  |     | NULL    |                |
+| EmpZONE   | varchar(225) | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+
+//Create New database and table
+
+
+mysql> insert into Employee(FirstName, LastName, EmpAGE,EmpZONE)
+    -> values('Mohammad', 'Imran', 20, 'South');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee(FirstName, LastName, EmpAGE,EmpZONE)
+    ->
+    -> values('Gupta', 'Rohan', 22, 'North');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee(FirstName, LastName, EmpAGE,EmpZONE)
+    -> values('B', 'Rakesh', 21, 'East');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee(FirstName, LastName, EmpAGE,EmpZONE)
+    -> values('Shaik', 'Junaid', 24, 'West');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Select * From Employeee;
+ERROR 1146 (42S02): Table 'yasn.employeee' doesn't exist
+mysql> Select * From Employee;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZONE |
++-------+-----------+----------+--------+---------+
+|     1 | Mohammad  | Imran    |     20 | South   |
+|     2 | Gupta     | Rohan    |     22 | North   |
+|     3 | B         | Rakesh   |     21 | East    |
+|     4 | Shaik     | Junaid   |     24 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
